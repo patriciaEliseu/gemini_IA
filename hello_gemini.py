@@ -7,3 +7,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 response = model.generate_content("Crie uma história sobre um computador mágico")
 print(response.text)
+
+
+# comando para executar 
+# python hello_gemini.py <enter>
