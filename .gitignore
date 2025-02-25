@@ -1,3 +1,2 @@
 
-
-/meu_ambiente
+echo "/meu_ambiente/" >> .gitignore
