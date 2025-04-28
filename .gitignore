@@ -1,2 +1,6 @@
 
-echo "/meu_ambiente/"  >> .gitignore
+#echo "/meu_ambiente/"  >> .gitignore
+
+# Ignorar ambiente virtual
+meu_ambiente/
+
