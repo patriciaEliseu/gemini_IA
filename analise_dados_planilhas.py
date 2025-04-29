@@ -10,7 +10,7 @@ students_spreadsheet = genai.upload_file(
    display_name="Notas do Enem"
 )
 
-prompt = "Pode gerar um relatório de dois ou três parágrafos baseado nesses dados? Fale de tendências nos grupos de estudantes."
+prompt = f"Pode gerar um relatório de dois ou três parágrafos baseado nesses dados? Fale de tendências nos grupos de estudantes."
 response = model.generate_content([students_spreadsheet, prompt])
 
 print(response.text)
