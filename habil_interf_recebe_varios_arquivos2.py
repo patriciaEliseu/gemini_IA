@@ -3,14 +3,16 @@ import os
 import time
 import gradio as gr
 from google.api_core.exceptions import InvalidArgument
+
+
 # Configure a chave de API
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 initial_prompt = (
-    "Você é um assistente virtual que pode receber e processar arquivos de vários tipos, "
+    f"Você é um assistente virtual que pode receber e processar arquivos de vários tipos, "
     "como imagens, áudios, vídeos, textos e planilhas. Ao receber um arquivo, você deve analisá-lo "
     "e fornecer uma resposta adequada baseada no conteúdo."
 )
-model = genai.GenerativeModel("gemini-1.5-flash", system_instruction=initial_prompt)
+model = genai.GenerativeModel("gemini-1.5-flash",                                                      system_instruction=initial_prompt)
 chat = model.start_chat()
 
 def assemble_prompt(message):
@@ -23,7 +25,7 @@ def upload_files(message):
     uploaded_files = []
     if message["files"]:
         for file_gradio_data in message["files"]:
-            uploaded_file = genai.upload_file(file_gradio_data["path"])
+            uploaded_file = genai.upload_file(file_gradio_data)
             while uploaded_file.state.name == "PROCESSING":
                 time.sleep(5)
                 uploaded_file = genai.get_file(uploaded_file.name)
